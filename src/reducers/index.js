@@ -1,7 +1,14 @@
-import { combineReducers } from 'redux'; 
+import { combineReducers } from 'redux';
+import * as Actions from '../actions/variable.js'
 
 export default combineReducers({
-    helloworld: function(initState = []) {
-        return initState
+    user: function(state = null, {type, payload}) {
+		switch(type) {
+			case Actions.REGISTER_USER:
+				return payload;
+				break;
+			default:
+				return state;
+		}
     }
 });

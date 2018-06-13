@@ -1,5 +1,9 @@
+import React from 'react';
+
 const Category = () => {
-	return null;
+	return (
+		<div>Category</div>
+	);
 };
 
 export default Category;

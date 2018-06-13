@@ -1,0 +1,26 @@
+.app-input-animated {
+    position: relative;
+}
+
+.app-input-animated__span {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    font-size: 1em;
+    color: rgba(0,0,0,0.3);
+    transform: translateY(-50%);
+    white-space: nowrap;
+    pointer-events: none;
+    transition-property: top, left, font-size;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+
+    .app-input-animated__active & {
+        top: 0;
+        left: 0;
+        font-size: 0.7em;
+        color: rgba(0,0,0,0.8);
+        background-color: #fff;
+        box-shadow: 10px 0 0 #fff, -10px 0 0 #fff, 0 0 5px rgba(0,0,0,0.5);
+    }
+}

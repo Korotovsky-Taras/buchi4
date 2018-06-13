@@ -1,5 +1,9 @@
+import React from 'react';
+
 const Party = () => {
-	return null;
+	return (
+			<div>Party</div>
+	);
 };
 
 export default Party;

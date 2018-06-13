@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import './App.css';
+import './App.scss';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from '../Home/Home.js'
