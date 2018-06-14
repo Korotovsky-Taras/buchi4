@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
+import LocalData from '../../data/LocalData';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import AnimatedInput from '../AnimatedInput/AnimatedInput';
@@ -83,7 +84,9 @@ class LoginForm extends Component {
 		this.setState({ errors: this.validate(name, email, password) });
 
 		if (Object.keys(errors).length === 0) {
-			this.props.onRegisterUser(this.state.user);
+			let {user} = this.state;
+			LocalData.setItem(LocalData.fields.VERIFIED_USER, user);
+			this.props.onRegisterUser(user);
 		}
 
 	};
@@ -104,16 +107,10 @@ class LoginForm extends Component {
 
 }
 
-function mapStateToProps (state) {
-	return {
-		user: state.user
-	}
-}
-
 function matchDispatchToProps (dispatch) {
 	return bindActionCreators({
 		onRegisterUser: registerUserAction
 	}, dispatch)
 }
 
-export default withRouter(connect(mapStateToProps, matchDispatchToProps)(LoginForm));
+export default withRouter(connect(null, matchDispatchToProps)(LoginForm));
